@@ -1,0 +1,11 @@
+{
+  "name": "storefront-backend",
+  "version": "1.0.0",
+  "description": "backend server for storefront",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Tony Regalado",
+  "license": "MIT"
+}
