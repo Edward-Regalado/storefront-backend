@@ -4,7 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002; // 
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -19,19 +19,20 @@ db.once('open', function () {
   console.log('Mongoose is connected');
 });
 
-const Data = require('./src/assets/data');
+// const Data = require('./src/assets/data/data.js');
+const Products = require('./src/models/products');
+
 
 app.get('/', handleGetAllItems);
 
 
 async function handleGetAllItems(req, res) {
   try {
-    const items = await Data.find();
-
-    res.status(200).send(items);
+    const product = await Products.find();
+    res.status(200).send(product);
   } catch (e) {
     console.error(e);
-    res.status(400).send('no items available');
+    res.status(400).send('no products available');
   }
 }
 
